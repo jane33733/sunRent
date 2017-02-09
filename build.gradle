@@ -28,6 +28,17 @@ repositories {
 }
 
 
+
+def springVersion = "4.2.5.RELEASE"
+def jdkVersion = "1.8"
+def junitVersion = "4.12"
+def logbackVersion = "1.1.3"
+def jclOverSlf4jVersion = "1.7.14"
+def jstlVersion = "1.2"
+def hamcrestVersion = "1.3"
+def servletApiVersion = "3.0.1"
+
+
 // 設置依賴
 dependencies {
 	def tomcatVersion = '7.0.59'
@@ -35,10 +46,49 @@ dependencies {
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
     
+    //providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
     providedCompile 'javax.servlet:servlet-api:2.5' // 編譯期
     providedRuntime 'javax.servlet:jstl:1.2'    // 運行時
+    
+     //logger
+    compile 'org.slf4j:jcl-over-slf4j:' + jclOverSlf4jVersion
+	compile 'ch.qos.logback:logback-classic:' + logbackVersion
+
+    //spring	
+    compile 'org.springframework:spring-webmvc:' +springVersion
+    compile 'org.springframework:spring-core:' +springVersion
+    compile 'org.springframework:spring-orm:' +springVersion
+    compile 'org.springframework:spring-tx:' +springVersion
+    
+    //spring security
+    compile 'org.springframework.security:spring-security-web:4.0.4.RELEASE'
+    compile 'org.springframework.security:spring-security-config:4.0.4.RELEASE'      
+    
+    //hibernate
+    compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.2.4.Final'
+    
+    compile 'commons-dbcp:commons-dbcp:1.4'    
+    compile 'mysql:mysql-connector-java:5.1.38'    
+	compile 'javax.servlet:jstl:' + jstlVersion  
+	compile 'org.apache.commons:commons-lang3:3.4'
+	compile 'commons-collections:commons-collections:3.2.2'
+	compile 'commons-codec:commons-codec:1.9'	
+	compile 'p6spy:p6spy:2.2.0'	        
+    
+    
+    //exclude the build in hamcrest
+    testCompile('junit:junit:' + junitVersion) {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile 'org.hamcrest:hamcrest-library:' + hamcrestVersion
+    testCompile 'org.springframework:spring-test:' + springVersion
+    
+	//include in compile only, exclude in the war
+    providedCompile 'javax.servlet:javax.servlet-api:' + servletApiVersion
+    
+    
     
     testCompile 'junit:junit:4.12'
 }
@@ -47,7 +97,7 @@ tomcat {
     httpPort = 8080
     httpsPort = 8443
     enableSSL = true
-    contextPath = 'sample-app'
+    contextPath = 'janePractice'
 }
 
 // 設置 Project Facets
