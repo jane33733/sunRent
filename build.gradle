@@ -93,6 +93,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+compileJava.options.encoding = 'UTF-8'
+tomcatRun.URIEncoding = 'UTF-8'
 tomcat {
     httpPort = 8080
     httpsPort = 8443
