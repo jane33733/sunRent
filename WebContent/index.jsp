@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="js/jquery-1.11.2.min.js"></script>
-<script src="/js/queryString.js"></script>
+<script src="js/queryString.js"></script>
 <script src="js/postJson.js"></script>
 <script src="js/index.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
