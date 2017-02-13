@@ -15,10 +15,10 @@
 	<aop:aspectj-autoproxy />
 	<!-- 使用注解的包，包括子集 -->
 	<context:component-scan base-package="com.sun" />
-	<!-- 通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
+	<!-- 通過注解，把URL映射到Controller上，該標籤默認註冊DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
 	<mvc:annotation-driven />
 	
-	<!-- 视图解析器 -->
+	<!-- 視圖解析器 -->
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
 		<property name="location">
 			<value>/WEB-INF/spring-views.xml</value>
@@ -35,17 +35,17 @@
 	</bean>
 
 
-	<!-- 文件上传 -->
+	<!-- 文件上傳 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		p:defaultEncoding="UTF-8">
 	</bean>
 
-	<!-- 国际化支持 -->
+	<!-- 國際化支持 -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
-		<!-- 如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称 -->
+		<!-- 如果在國際化資源檔中找不到對應代碼的資訊，就用這個代碼作為名稱 -->
 		<!-- <property name="useCodeAsDefaultMessage" value="true" /> -->
 	</bean>
 

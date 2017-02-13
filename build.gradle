@@ -66,6 +66,7 @@ dependencies {
     compile 'org.springframework:spring-tx:' +springVersion
     compile 'org.springframework:spring-aop:' +springVersion
     compile 'org.springframework:spring-aspects:' +springVersion
+    compile 'org.springframework:spring-beans:' +springVersion
     
     //spring security
     compile 'org.springframework.security:spring-security-web:4.0.4.RELEASE'
@@ -78,13 +79,20 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'    
     compile 'mysql:mysql-connector-java:5.1.38'    
 	compile 'javax.servlet:jstl:' + jstlVersion  
-	compile 'org.apache.commons:commons-lang3:3.4'
 	compile 'commons-collections:commons-collections:3.2.2'
 	compile 'commons-codec:commons-codec:1.9'	
+    compile 'commons-fileupload:commons-fileupload:1.2.2'
 	compile 'p6spy:p6spy:2.2.0'	        
+	compile 'org.apache.commons:commons-lang3:3.4'
     
     
-    
+    //apache : try to fix @EventListener NoClassDefFoundError
+    //compile 'org.apache.httpcomponents:httpcore:4.4.4'
+    //compile 'org.apache.httpcomponents:httpclient:4.5.1'
+    //compile 'org.apache.velocity:velocity:1.6.4'
+    //compile 'org.apache.httpcomponents:httpmime:4.1.2'
+    //compile 'org.apache.poi:poi-ooxml:3.10.1'
+    compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
     
     //exclude the build in hamcrest
     testCompile('junit:junit:' + junitVersion) {
