@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.service.ProductService;
@@ -46,6 +47,20 @@ public class ProductController  {
 			throw new IllegalArgumentException();
 		}
         
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public List<String> search() throws Exception {
+        LOGGER.debug("[search]------ Start : contentType= {}");
+        
+//        if (id != 0) {
+//        	return productService.search(id);
+//		} else {
+//			LOGGER.error("input parameter is invilad....{}", id);
+//			throw new IllegalArgumentException();
+//		}
+        return null;
     }
     
 
