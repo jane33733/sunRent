@@ -55,11 +55,17 @@ dependencies {
     compile 'org.slf4j:jcl-over-slf4j:' + jclOverSlf4jVersion
 	compile 'ch.qos.logback:logback-classic:' + logbackVersion
 
+	//aop
+    compile 'org.aspectj:aspectjweaver:1.8.9'    
+    compile 'org.jsoup:jsoup:1.9.1'
+
     //spring	
     compile 'org.springframework:spring-webmvc:' +springVersion
     compile 'org.springframework:spring-core:' +springVersion
     compile 'org.springframework:spring-orm:' +springVersion
     compile 'org.springframework:spring-tx:' +springVersion
+    compile 'org.springframework:spring-aop:' +springVersion
+    compile 'org.springframework:spring-aspects:' +springVersion
     
     //spring security
     compile 'org.springframework.security:spring-security-web:4.0.4.RELEASE'
@@ -76,6 +82,8 @@ dependencies {
 	compile 'commons-collections:commons-collections:3.2.2'
 	compile 'commons-codec:commons-codec:1.9'	
 	compile 'p6spy:p6spy:2.2.0'	        
+    
+    
     
     
     //exclude the build in hamcrest
