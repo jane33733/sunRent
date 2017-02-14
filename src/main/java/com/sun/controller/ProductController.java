@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sun.request.vo.ProductVO;
 import com.sun.service.ProductService;
 
 
@@ -37,13 +38,13 @@ public class ProductController  {
      */
     @ResponseBody
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public List<String> search(@RequestBody int id) throws Exception {
-        LOGGER.debug("[search]------ Start : contentType= {}", id);
+    public List<String> search(@RequestBody ProductVO productVO) throws Exception {
+        LOGGER.debug("[search]------ Start : contentType= {}", productVO.getProductId());
         
-        if (id != 0) {
-        	return productService.search(id);
+        if (productVO.getProductId() != 0) {
+        	return productService.search(productVO.getProductId());
 		} else {
-			LOGGER.error("input parameter is invilad....{}", id);
+			LOGGER.error("input parameter is invilad....{}", productVO.getProductId());
 			throw new IllegalArgumentException();
 		}
         
@@ -54,13 +55,13 @@ public class ProductController  {
     public List<String> search() throws Exception {
         LOGGER.debug("[search]------ Start : contentType= {}");
         
+        return productService.search(0);
+        
 //        if (id != 0) {
-//        	return productService.search(id);
 //		} else {
 //			LOGGER.error("input parameter is invilad....{}", id);
 //			throw new IllegalArgumentException();
 //		}
-        return null;
     }
     
 

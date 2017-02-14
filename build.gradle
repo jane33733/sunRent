@@ -94,6 +94,13 @@ dependencies {
     //compile 'org.apache.poi:poi-ooxml:3.10.1'
     compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
     
+    
+    compile 'com.fasterxml.jackson.core:jackson-core:2.3.3'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.3.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.3'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.8.3'
+    compile 'org.codehaus.jackson:jackson-core-asl:1.8.3'
+    
     //exclude the build in hamcrest
     testCompile('junit:junit:' + junitVersion) {
         exclude group: 'org.hamcrest'
