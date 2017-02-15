@@ -2,6 +2,8 @@ package com.sun.service;
 
 import java.util.List;
 
+import com.sun.entity.Product;
+
 public interface ProductService {
 	
 	/**
@@ -10,6 +12,6 @@ public interface ProductService {
 	 * @param impeachSearchVO the impeach search VO
 	 * @return the list
 	 */
-	List<String> search(final int id);
+	List<Product> search(final int id);
 	
 }

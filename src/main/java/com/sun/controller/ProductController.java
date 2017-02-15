@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sun.entity.Product;
 import com.sun.request.vo.ProductVO;
 import com.sun.service.ProductService;
 
@@ -38,7 +38,7 @@ public class ProductController  {
      */
     @ResponseBody
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public List<String> search(@RequestBody ProductVO productVO) throws Exception {
+    public List<Product> search(@RequestBody ProductVO productVO) throws Exception {
         LOGGER.debug("[search]------ Start : contentType= {}", productVO.getProductId());
         
         if (productVO.getProductId() != 0) {
@@ -52,7 +52,7 @@ public class ProductController  {
     
     @ResponseBody
     @RequestMapping(value = "search", method = RequestMethod.GET)
-    public List<String> search() throws Exception {
+    public List<Product> search() throws Exception {
         LOGGER.debug("[search]------ Start : contentType= {}");
         
         return productService.search(0);
