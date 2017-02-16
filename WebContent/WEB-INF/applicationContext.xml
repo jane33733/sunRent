@@ -21,5 +21,16 @@
 	</bean>
 
 
+	<!-- config log4j -->
+	<bean id="log4jInitial"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:log4j.properties</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>  

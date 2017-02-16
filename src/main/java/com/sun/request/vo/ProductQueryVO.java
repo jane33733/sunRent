@@ -1,12 +1,16 @@
 package com.sun.request.vo;
 
+import java.math.BigDecimal;
+
 /**
  * The Class ProductVO.
  */
-public class ProductVO {
+public class ProductQueryVO {
 
 	/** The product id. */
 	private int productId;
+	
+	private BigDecimal price;
 
 	/**
 	 * Gets the product id.
@@ -25,6 +29,15 @@ public class ProductVO {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	
 	
 	
 }

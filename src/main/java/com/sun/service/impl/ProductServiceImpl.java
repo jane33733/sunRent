@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sun.dao.ProductDao;
 import com.sun.entity.Product;
+import com.sun.respose.vo.ProductInfoVO;
 import com.sun.service.ProductService;
 
 /**
@@ -23,17 +24,27 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
 	@Override
-	public List<Product> search(final int id) {
-		List<Product> searchList = new ArrayList<>();
+	public List<ProductInfoVO> search(final int id) {
+		List<Product> searchList = new ArrayList<Product>();
+		List<ProductInfoVO> pInfoList = new ArrayList<ProductInfoVO>();
 		try {
 					
 			searchList = productDao.getAll();
+			for (Product product : searchList) {
+				ProductInfoVO productInfoVO = new ProductInfoVO();
+				productInfoVO.setId(product.getId());
+				productInfoVO.setName(product.getName());
+				productInfoVO.setPrice(product.getPrice());
+				productInfoVO.setCreateTime(product.getCreateTime());
+				pInfoList.add(productInfoVO);
+			}
+			
 			
 		} catch (Exception e) {
 			LOGGER.debug("search fail : {}",e);
 		}
 		
-		return searchList;
+		return pInfoList;
 	}
 	
 	
