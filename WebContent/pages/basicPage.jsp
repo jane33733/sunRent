@@ -14,7 +14,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>basic</title>
-	<!-- 初始化語言(沒有效果，但是先放著) -->
+	<!-- 初始化語言(不曉得要怎麼替換) -->
 	<f:setLocale value="zh_TW"/>
 </head>
 <body>
