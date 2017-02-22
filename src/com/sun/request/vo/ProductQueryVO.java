@@ -2,15 +2,16 @@ package com.sun.request.vo;
 
 import java.math.BigDecimal;
 
-/**
- * The Class ProductVO.
- */
 public class ProductQueryVO {
 
 	/** The product id. */
 	private int productId;
 	
-	private BigDecimal price;
+	/** The price top. */
+	private Integer priceTop;
+	
+	/** The price bottom. */
+	private Integer priceBottom;
 
 	/**
 	 * Gets the product id.
@@ -30,14 +31,40 @@ public class ProductQueryVO {
 		this.productId = productId;
 	}
 
-	public BigDecimal getPrice() {
-		return price;
+	/**
+	 * Gets the price top.
+	 *
+	 * @return the price top
+	 */
+	public Integer getPriceTop() {
+		return priceTop;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	/**
+	 * Sets the price top.
+	 *
+	 * @param priceTop the new price top
+	 */
+	public void setPriceTop(Integer priceTop) {
+		this.priceTop = priceTop;
 	}
-	
-	
-	
+
+	/**
+	 * Gets the price bottom.
+	 *
+	 * @return the price bottom
+	 */
+	public Integer getPriceBottom() {
+		return priceBottom;
+	}
+
+	/**
+	 * Sets the price bottom.
+	 *
+	 * @param priceBottom the new price bottom
+	 */
+	public void setPriceBottom(Integer priceBottom) {
+		this.priceBottom = priceBottom;
+	}
+
 }

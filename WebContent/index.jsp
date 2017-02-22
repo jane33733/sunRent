@@ -23,11 +23,11 @@
 			<!--Sidebar content-->
 			
 			<br>
-			index try to connect java 10:38
+			index try to connect java 13:19
 			<br>
 			
 			<!--practice restful get-->
-			<button type="button" class="btn btn-primary fr" id="searchProduct" onclick="searchProduct()">
+			<button type="button" class="btn btn-primary fr" id="searchProduct" onclick="getAllProduct()">
 				顯示產品GET
 			</button>
 			
@@ -35,11 +35,26 @@
 			---------
 			<br>
 			
-			<!--practice restful post-->
-			<button type="button" class="btn btn-primary fr" id="searchProductByPrice" onclick="searchProduct()">
-				顯示產品POST
-			</button>
+			<form class="form-inline">
 			
+				<f:bundle basename="messages">
+				<label for="rg-from"><f:message key="productPrice"></f:message></label>
+				</f:bundle>
+				<div class="form-group">
+				  <input type="number" id="priceBottom" name="rg-from" class="form-control">
+				</div>
+				
+				<label for="rg-from"> ~ </label>
+				<div class="form-group">
+				  <input type="number" id="priceTop" name="rg-from" class="form-control">
+				</div>
+				
+				<!--practice restful post-->
+				<button type="button" class="btn btn-primary fr" id="searchProductByPrice" onclick="getProductByPrice()">
+					顯示產品POST
+				</button>
+			
+			</form>
 		</div>
 		
 		<br><br>

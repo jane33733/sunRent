@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sun.dao.ProductDao;
 import com.sun.entity.Product;
+import com.sun.request.vo.ProductQueryVO;
 import com.sun.respose.vo.ProductInfoVO;
 import com.sun.service.ProductService;
 
@@ -45,6 +46,15 @@ public class ProductServiceImpl implements ProductService {
 		}
 		
 		return pInfoList;
+	}
+
+	@Override
+	public List<Product> searchByCondition(ProductQueryVO queryVO) {
+		List<Product> productList = null;
+		
+		productList = productDao.getByPrice(queryVO);
+		
+		return productList;
 	}
 	
 	

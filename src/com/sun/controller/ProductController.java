@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sun.entity.Product;
 import com.sun.request.vo.ProductQueryVO;
 import com.sun.respose.vo.ProductInfoVO;
 import com.sun.service.ProductService;
@@ -39,23 +40,17 @@ public class ProductController  {
      * @throws Exception the exception
      */
     @ResponseBody
-    @RequestMapping(value = "search", method = RequestMethod.POST)
-    public List<ProductInfoVO> search(@RequestBody ProductQueryVO productVO) throws Exception {
-        LOGGER.debug("[search]------ Start : contentType= {}", productVO.getProductId());
-        
-        if (productVO.getProductId() != 0) {
-        	return productService.search(productVO.getProductId());
-		} else {
-			LOGGER.error("input parameter is invilad....{}", productVO.getProductId());
-			throw new IllegalArgumentException();
-		}
-        
+    @RequestMapping(value = "getByPrice", method = RequestMethod.POST)
+    public List<Product> getByPrice(@RequestBody ProductQueryVO queryVO) throws Exception {
+        LOGGER.debug("[getByPrice]------ Start "+queryVO.getPriceBottom());
+        System.out.println("[getByPrice]------ Start "+queryVO.getPriceBottom());
+        return productService.searchByCondition(queryVO);
     }
     
     @ResponseBody
-    @RequestMapping(value = "search", method = RequestMethod.GET)
+    @RequestMapping(value = "getAll", method = RequestMethod.GET)
     public List<ProductInfoVO> search() throws Exception {
-        LOGGER.debug("[search]------ Start : contentType= {}");
+        LOGGER.debug("[getAll]------ Start ");
         List<ProductInfoVO> productList = productService.search(1);
         
         return productList;
