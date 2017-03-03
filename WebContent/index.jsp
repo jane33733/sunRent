@@ -24,15 +24,15 @@ index try to connect java 15:19
 <form class="form-inline">
 			
 	<f:bundle basename="messages">
-	<label for="rg-from"><f:message key="productPrice"></f:message></label>
+	<label for="rg-from"><f:message key="account"></f:message></label>
 	</f:bundle>
 	<div class="form-group">
-	  <input type="number" id="priceBottom" name="rg-from" class="form-control">
+	  <input type="text" id="account" name="rg-from" class="form-control">
 	</div>
 	
-	<label for="rg-from"> ~ </label>
+	<label for="rg-from"><f:message key="password"></f:message></label>
 	<div class="form-group">
-	  <input type="number" id="priceTop" name="rg-from" class="form-control">
+	  <input type="text" id="password" name="rg-from" class="form-control">
 	</div>
 	
 	<!--practice restful post-->
