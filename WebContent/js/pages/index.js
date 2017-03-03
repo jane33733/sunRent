@@ -7,6 +7,9 @@ var $dynamicTableSpace;
 
 
 function getAllProduct(){
+	$('#product_table').hide();
+	$('#no_result').hide();
+	
 	jQuery.ajax({
 	    url: "product/getAll.do",
 	    dataType: "json",
@@ -23,6 +26,9 @@ function getAllProduct(){
 }
 
 function getProductByPrice(){
+	$('#product_table').hide();
+	$('#no_result').hide();
+	
 	var productQueryVO = {
 			productId: 1,
 			priceBottom: $("#priceBottom").val(),
@@ -51,7 +57,7 @@ function searchSuccess(resultData){
 	
 	if(resultData.length > 0){
 		
-		$("#product_tbody").empty;
+		$("#product_tbody").html("");
 		dbDataTable(resultData)
 		
 		//顯示table
@@ -70,9 +76,9 @@ function searchError(){
 }
 
 function dbDataTable(resultData){
-	var tableHtml;
+	var tableHtml = $('<tr/>');
 	resultData.forEach(function(dbData, index){
-		tableHtml = $('<tr/>');
+        tableHtml = $('<tr/>');
         tableHtml.append("<td>" + dbData.id + "</td>");
         tableHtml.append("<td>" + dbData.name + "</td>");
         tableHtml.append("<td>" + dbData.price + "</td>");
