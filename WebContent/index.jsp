@@ -18,7 +18,7 @@
 
 
 <br>
-index try to connect java 15:19
+index try to Login 15:19
 <br>
 
 <form class="form-inline">
@@ -36,7 +36,7 @@ index try to connect java 15:19
 	</div>
 	
 	<!--practice restful post-->
-	<button type="button" class="btn btn-primary fr" id="searchProductByPrice" onclick="getProductByPrice()">
+	<button type="button" class="btn btn-primary fr" id="login" onclick="checkLogin()">
 		登入
 	</button>
 

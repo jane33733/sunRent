@@ -10,7 +10,7 @@
 
 <link href="css/pinkTable.css" rel="stylesheet" type="text/css">
 <jsp:include page="basicPage.jsp"></jsp:include>
-<script src="<c:url value="/js/pages/index.js"/>"></script>
+<script src="<c:url value="/js/pages/product.js"/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>first practice</title>
 </head>
