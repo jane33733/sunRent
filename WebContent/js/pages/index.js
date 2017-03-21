@@ -6,7 +6,6 @@ var productList = [];
 
 function checkLogin(){
 	
-	$("#welcome").hide();
 	
 	var loginInfo = {
 			account: $("#account").val(),
@@ -52,6 +51,9 @@ function searchError(){
 	//$('#no_result').show();
 	$("#welcome").hide();
 }
+
+
+
 
 
 

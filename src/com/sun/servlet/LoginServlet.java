@@ -24,29 +24,30 @@ public class LoginServlet extends HttpServlet {
 		LOGGER.debug("[loginCheck]------ Start ");
 		System.out.println("[loginCheck]------ Start ");
 		
-		response.setContentType("text/html");
+		//編碼部分應該用Filter統一處理
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
+//		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		request.getRequestDispatcher("index.jsp").include(request, response);
+//		request.getRequestDispatcher("index.jsp").include(request, response);
 		
 //		String account=request.getParameter("account");
 		String password=request.getParameter("password");
 		
-        
-        //檢查帳密
-        System.out.println(request.getParameter("account"));
-        System.out.println(request.getParameter("password"));
-        
         //直接當作通過
         HttpSession session = request.getSession();
 		session.setAttribute("account", request.getParameter("account"));
-		session.setAttribute("name","db output name");
+		session.setAttribute("userName","db output name");
 		
 		//範例的判斷以後再說
 		if("123".equals(password)){
-			out.print("Welcome, "+ session.getAttribute("name") );
+			out.print("Welcome, "+ session.getAttribute("userName") );
+			request.getRequestDispatcher("\\pages\\productInfo.jsp").forward(request,response);
 		}
 		else{
 			out.print("Sorry, username or password error!");
+			response.sendRedirect("\\pages\\error\\errorSimple.jsp");
 //			request.getRequestDispatcher("index.jsp").include(request, response);
 		}
 		out.close();

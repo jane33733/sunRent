@@ -22,9 +22,13 @@
 		<div class="span4">
 			<!--Sidebar content-->
 			
-			<br>
+			<br/>
 			index try to connect java 15:19
-			<br>
+			<br/><br/>
+			<label id="userName">帳號:</label>${account}
+			<br/>
+			<label id="userName">名稱:</label>${userName}
+			<br/>
 			
 			<!--practice restful get-->
 			<button type="button" class="btn btn-primary fr" id="searchProduct" onclick="getAllProduct()">

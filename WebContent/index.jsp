@@ -10,7 +10,6 @@
 
 <link href="css/pinkTable.css" rel="stylesheet" type="text/css">
 <jsp:include page="pages/basicPage.jsp"></jsp:include>
-<script src="<c:url value="/js/pages/index.js"/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>first practice</title>
 </head>
@@ -42,13 +41,7 @@ index try to Login 15:19
 
 </form>
 
-
-	<div class="form-group" id="welcome">
-	<label for="rg-from">歡迎</label>
-	<div class="form-group" id="userName">
-	  
-	</div>
-	</div>
+	
 	
 	
 </body>
