@@ -26,3 +26,17 @@ CREATE TABLE `sun_account` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
+
+--使用者
+DROP TABLE IF EXISTS `sun_user`;
+CREATE TABLE `sun_user` (
+	`id` VARCHAR(50) NOT NULL COMMENT '使用者id',
+	`name` VARCHAR(50) NOT NULL COMMENT '使用者名稱',
+	`nick_name` VARCHAR(50) NOT NULL COMMENT '使用者暱稱',
+	`birthday` DATE NOT NULL COMMENT '生日',
+	`create_time` DATETIME NOT NULL COMMENT '建立時間',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

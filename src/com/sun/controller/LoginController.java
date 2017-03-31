@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sun.request.vo.LoginVO;
+import com.sun.respose.vo.LoginVO;
 
 @Controller
 @RequestMapping(value = "login")

@@ -30,7 +30,6 @@ public class LoginServlet extends HttpServlet {
 		
 //		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-//		request.getRequestDispatcher("index.jsp").include(request, response);
 		
 //		String account=request.getParameter("account");
 		String password=request.getParameter("password");
