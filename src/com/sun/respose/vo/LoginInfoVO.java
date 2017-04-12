@@ -2,7 +2,7 @@ package com.sun.respose.vo;
 
 import com.sun.entity.BaseEntity;
 
-public class LoginVO extends BaseEntity{
+public class LoginInfoVO extends BaseEntity{
 
 	/**
 	 * 

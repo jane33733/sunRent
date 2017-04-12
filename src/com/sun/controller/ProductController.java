@@ -28,7 +28,7 @@ public class ProductController  {
     /** The Constant LOGGER. */
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
-    /** The impeach service. */
+    /** The product service. */
     @Autowired
     private ProductService productService;
     
