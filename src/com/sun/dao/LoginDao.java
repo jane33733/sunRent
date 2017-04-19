@@ -3,6 +3,7 @@ package com.sun.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,16 +27,22 @@ public class LoginDao extends BaseDao {
 		str.append("ON a.user_id = u.id ");
 		str.append("WHERE a.account = :account ");
 		str.append("AND a.password = :password ");
-		
-		final Query query = this.sessionFactory.getCurrentSession().createSQLQuery(str.toString());
-
-		query.setString("account", loginVO.getAccount());
-		query.setString("password", loginVO.getPassword());
-		
-		List resultList = query.list();
-		
-		if (resultList.size() == 1) {
-			loginInfo = (LoginInfoVO)resultList.get(0);
+		try {
+			
+			final Query query = this.sessionFactory.getCurrentSession().createSQLQuery(str.toString());
+			
+			query.setString("account", loginVO.getAccount());
+			query.setString("password", loginVO.getPassword());
+			query.setResultTransformer(Transformers.aliasToBean(LoginInfoVO.class));
+			
+			List resultList = query.list();
+			
+			if (resultList.size() == 1) {
+				loginInfo = (LoginInfoVO)resultList.get(0);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		return loginInfo;

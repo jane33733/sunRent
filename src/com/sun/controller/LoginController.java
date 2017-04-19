@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.request.vo.LoginVO;
 import com.sun.respose.vo.LoginInfoVO;
@@ -26,32 +28,39 @@ public class LoginController extends HttpServlet{
 	private static final long serialVersionUID = 358203527105212734L;
 	
 	/** The Constant LOGGER. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
     
     @Autowired
     private LoginService loginService;
     
+    @ResponseBody
+    @RequestMapping(value = "validate", method = RequestMethod.POST)
     public boolean loginValidate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	LOGGER.debug("[loginCheck]------ Start ");
+    	LOGGER.info("[loginCheck]------ Start ");
+    	HttpSession session = null;
         boolean login = false;
-        System.out.println("[loginCheck]------ Start ");
         
         try {
         	
         	LoginVO loginVO = LoginVO.getInstance(request);
         	//檢查帳密
-        	System.out.println(request.getParameter("account"));
-        	System.out.println(loginVO.toString());
+//        	System.out.println(request.getParameter("account"));
+//        	System.out.println(loginVO.toString());
         	
-        	//直接當作通過
         	if (StringUtils.isNotBlank(loginVO.getAccount()) && StringUtils.isNoneBlank(loginVO.getPassword())) {
         		
         		LoginInfoVO loginInfoVO = loginService.validateUser(loginVO);
+        		LOGGER.debug("loginInfoVO {}", loginInfoVO.toString());
         		
         		if (loginInfoVO.getIsExist()) {
-        			HttpSession session = request.getSession();
+        			session = request.getSession();
         			session.setAttribute("account", loginInfoVO.getAccount());
-        			session.setAttribute("name", loginInfoVO.getUserName());
+        			session.setAttribute("userName", loginInfoVO.getUserName());
+        			
+//        			request.getRequestDispatcher("\\pages\\productInfo.jsp").forward(request,response);
+        			response.sendRedirect("\\pages\\productInfo.jsp");
+        		} else {
+        			response.sendRedirect("\\pages\\error\\errorSimple.jsp");
         		}
         	}
 			
