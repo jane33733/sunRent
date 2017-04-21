@@ -17,6 +17,7 @@ public class LoginVO extends BaseEntity {
 	public LoginVO() {
 		/* for spring init. */}
 
+	@SuppressWarnings(value={"unchecked"})
 	public static class Builder<T extends LoginVO> implements VOBuilder {
 		private String account;
 		private String password;

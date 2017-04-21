@@ -56,9 +56,10 @@ public class LoginController extends HttpServlet{
         			session = request.getSession();
         			session.setAttribute("account", loginInfoVO.getAccount());
         			session.setAttribute("userName", loginInfoVO.getUserName());
+        			session.setAttribute("validate", true);
         			
 //        			request.getRequestDispatcher("\\pages\\productInfo.jsp").forward(request,response);
-        			response.sendRedirect("\\pages\\productInfo.jsp");
+        			response.sendRedirect("pages/welcome.jsp");
         		} else {
         			response.sendRedirect("\\pages\\error\\errorSimple.jsp");
         		}
