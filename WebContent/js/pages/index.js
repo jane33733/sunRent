@@ -2,42 +2,20 @@ var $dataCount = 0;
 var productTable;
 var character;
 var productList = [];
-var $dynamicTableBlock;
-var $dynamicTableSpace;
 
 
-function getAllProduct(){
-	$('#product_table').hide();
-	$('#no_result').hide();
+function checkLogin(){
 	
-	jQuery.ajax({
-	    url: "product/getAll.do",
-	    dataType: "json",
-	    type: "GET",
-	    contentType: 'application/json; charset=utf-8',
-	    success: function(resultData){
-	    	searchSuccess(resultData);
-	    } ,
-	    error : function(jqXHR, textStatus, errorThrown) {
-	    	searchError();
-	    },
-	    timeout: 120000,
-	});
-}
-
-function getProductByPrice(){
-	$('#product_table').hide();
-	$('#no_result').hide();
 	
-	var productQueryVO = {
-			productId: 1,
-			priceBottom: $("#priceBottom").val(),
-			priceTop: $("#priceTop").val()
+	var loginInfo = {
+			account: $("#account").val(),
+			password: $("#password").val()
 	    };
 	
+	
 	jQuery.ajax({
-		url: "product/getByPrice.do",
-		data: JSON.stringify(productQueryVO),
+		url: "login/validate.do",
+		data: JSON.stringify(loginInfo),
 		dataType: "json",
 		type: "POST",
 		contentType: 'application/json; charset=utf-8',
@@ -54,15 +32,14 @@ function getProductByPrice(){
 
 
 function searchSuccess(resultData){
+	$("#userName").hide();
 	
 	if(resultData.length > 0){
 		
-		$("#product_tbody").html("");
-		dbDataTable(resultData)
+		$("#userName").html(resultData.userName);
 		
-		//顯示table
-		$('#product_table').show();
-		$('#no_result').hide();
+		//名字
+		$("#userName").show();
 		
 	}else{
 		searchError()
@@ -71,22 +48,14 @@ function searchSuccess(resultData){
 
 
 function searchError(){
-	$('#no_result').show();
-	$('.book_search').hide();
+	//$('#no_result').show();
+	$("#welcome").hide();
 }
 
-function dbDataTable(resultData){
-	var tableHtml = $('<tr/>');
-	resultData.forEach(function(dbData, index){
-        tableHtml = $('<tr/>');
-        tableHtml.append("<td>" + dbData.id + "</td>");
-        tableHtml.append("<td>" + dbData.name + "</td>");
-        tableHtml.append("<td>" + dbData.price + "</td>");
-        tableHtml.append("<td>" + dbData.createTime + "</td>");
-        tableHtml.append("<td> </td>");
-        $("#product_tbody").append(tableHtml);
-	});
-}
+
+
+
+
 
 
 

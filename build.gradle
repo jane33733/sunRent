@@ -68,10 +68,7 @@ dependencies {
     providedRuntime 'javax.servlet:jstl:1.2'    // 運行時
     
     //logger
-	//compile 'ch.qos.logback:logback-classic:' + logbackVersion
 	compile 'org.slf4j:slf4j-simple:1.7.23'
-	//CLOSE this will reduce log print
-	//compile 'org.slf4j:jcl-over-slf4j:1.7.23'
 	compile 'org.slf4j:slf4j-api:1.7.23'
 	compile 'log4j:log4j:1.2.17'
 
@@ -106,6 +103,10 @@ dependencies {
 	compile 'org.apache.commons:commons-lang3:3.4'
     
     compile 'com.google.code.gson:gson:1.5'
+    
+    // https://mvnrepository.com/artifact/javax.mail/mail
+	compile group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
+    
     
     //apache : try to fix @EventListener NoClassDefFoundError
     //compile 'org.apache.httpcomponents:httpcore:4.4.4'

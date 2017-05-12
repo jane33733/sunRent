@@ -28,7 +28,7 @@ public class ProductController  {
     /** The Constant LOGGER. */
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
-    /** The impeach service. */
+    /** The product service. */
     @Autowired
     private ProductService productService;
     
@@ -43,7 +43,7 @@ public class ProductController  {
     @RequestMapping(value = "getByPrice", method = RequestMethod.POST)
     public List<Product> getByPrice(@RequestBody ProductQueryVO queryVO) throws Exception {
         LOGGER.debug("[getByPrice]------ Start "+queryVO.getPriceBottom());
-        System.out.println("[getByPrice]------ Start "+queryVO.getPriceBottom());
+//        System.out.println("[getByPrice]------ Start "+queryVO.getPriceBottom());
         return productService.searchByCondition(queryVO);
     }
     

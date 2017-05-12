@@ -10,94 +10,40 @@
 
 <link href="css/pinkTable.css" rel="stylesheet" type="text/css">
 <jsp:include page="pages/basicPage.jsp"></jsp:include>
-<script src="<c:url value="/js/pages/index.js"/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>first practice</title>
 </head>
+
 <body>
 
+<input type="hidden" id="postUrl" value="<c:url value='/mail/sendEmail.do'/>"/>
 
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span4">
-			<!--Sidebar content-->
+<br>
+index try to Login 15:19
+<br>
+
+<form class="form-inline" action="LoginServlet" method="post">
 			
-			<br>
-			index try to connect java 15:19
-			<br>
-			
-			<!--practice restful get-->
-			<button type="button" class="btn btn-primary fr" id="searchProduct" onclick="getAllProduct()">
-				顯示產品GET
-			</button>
-			
-			<br>
-			---------
-			<br>
-			
-			<form class="form-inline">
-			
-				<f:bundle basename="messages">
-				<label for="rg-from"><f:message key="productPrice"></f:message></label>
-				</f:bundle>
-				<div class="form-group">
-				  <input type="number" id="priceBottom" name="rg-from" class="form-control">
-				</div>
-				
-				<label for="rg-from"> ~ </label>
-				<div class="form-group">
-				  <input type="number" id="priceTop" name="rg-from" class="form-control">
-				</div>
-				
-				<!--practice restful post-->
-				<button type="button" class="btn btn-primary fr" id="searchProductByPrice" onclick="getProductByPrice()">
-					顯示產品POST
-				</button>
-			
-			</form>
-		</div>
-		
-		<br><br>
-		
-    	<div class="span8">
-			<!--Body content-->
-			
-			
-			<!--查無資料-->
-			<p id="no_result" style="display: none;">
-				no data
-			</p>
-			
-			<table id="product_table" class="pinkTable table-hover table" style="display: none;">
-			<!--以下為固定標頭-->
-			<thead>
-				<tr>
-				<f:bundle basename="messages">
-					<!--產品編號--> 
-					<th><f:message key="productId"></f:message></th>
-					<!--產品名稱--> 
-					<th><f:message key="productName"></f:message></th>
-					<!--價格--> 
-					<th><f:message key="productPrice"></f:message></th>
-					<!--時間--> 
-					<th><f:message key="createTime"></f:message></th>
-					<!--查看-->
-					<th><f:message key="detail"></f:message></th>
-		        </f:bundle>
-				</tr>
-			</thead>
-			
-			<tbody id="product_tbody">
-			<!--顯示資料庫資料-->
-			</tbody>
-				
-			</table>
-			
-			
-    	</div>
+	<f:bundle basename="messages">
+	<label for="rg-from"><f:message key="account"></f:message></label>
+	<div class="form-group">
+	  <input type="text" id="account" name="account" class="form-control">
 	</div>
-</div>
+	
+	<label for="rg-from"><f:message key="password"></f:message></label>
+	<div class="form-group">
+	  <input type="password" id="password" name="password" class="form-control">
+	</div>
+	</f:bundle>
+	
+	<!--practice restful post-->
+	<button type="submit" value="login" class="btn btn-primary fr" id="login">
+		登入
+	</button>
 
+</form>
+
+	
 	
 	
 </body>
