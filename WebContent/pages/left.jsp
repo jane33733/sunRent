@@ -10,10 +10,14 @@
 
 <script type="text/javascript">
 
-var projectName = "janePractice/";
+var projectName = $("#mainUrl").val();
 
 function btnFirst(){
-	window.location.replace("/"+projectName+"pages/feature/mail.jsp");
+	window.location.replace(projectName+"pages/feature/mail.jsp");
+}
+
+function btnSecond(){
+	window.location.replace(projectName+"pages/feature/line.jsp");
 }
 
 </script>
@@ -29,8 +33,8 @@ function btnFirst(){
 	<button type="button" class="btn btn-default btn-block" onclick="btnFirst()">
 		<f:message key="btn_first"></f:message>
 	</button> 
-	<button type="button" class="btn btn-default btn-block">
-		Default
+	<button type="button" class="btn btn-default btn-block" onclick="btnSecond()">
+		按鈕二
 	</button> 
 	<button type="button" class="btn btn-default btn-block">
 		Default

@@ -28,6 +28,9 @@ if($("#validate").val()){
 
 
 <body>
+
+<input type="hidden" id="mainUrl" value="<c:url value='/'/>"/>
+
 	<!-- 初始化語言(不曉得要怎麼替換) -->
 	<f:setLocale value="zh_TW"/>
 	<input type="hidden" value="false" id="validate"/>
