@@ -7,11 +7,11 @@ var $dynamicTableSpace;
 var projectName = "janePractice/";
 
 function sendEmail(){
-	$('#outcome').hide();
-	
+	$("#outcome").hide();
+	var apiUrl = $("#postUrl").val();
 	
 	jQuery.ajax({
-	    url: "/"+projectName+"mail/sendEmail.do",
+	    url: apiUrl,
 	    dataType: "json",
 	    type: "GET",
 	    contentType: 'application/json; charset=utf-8',
@@ -30,8 +30,6 @@ function sendSuccess(resultData){
 	
 	if(resultData){
 		
-		
-		<label id="userName">名稱:</label>${userName}
 		$('#outcome').val("success");
 		//顯示
 		$('#outcome').show();

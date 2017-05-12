@@ -10,13 +10,16 @@
 
 
 <jsp:include page="/pages/basicPage.jsp"></jsp:include>
-<script src='<c:url value="/js/pages/feature/mail.js"/>'></script>
+<script src="<c:url value='/js/pages/feature/mail.js'/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mail practice</title>
 </head>
 
 
 <body>
+
+<input type="hidden" id="postUrl" value="<c:url value='/mail/sendEmail.do'/>"/>
+
 <!-- 標頭 -->
 <jsp:include page="/pages/top.jsp"></jsp:include>
 			

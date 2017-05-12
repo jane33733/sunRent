@@ -13,8 +13,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>first practice</title>
 </head>
+
 <body>
 
+<input type="hidden" id="postUrl" value="<c:url value='/mail/sendEmail.do'/>"/>
 
 <br>
 index try to Login 15:19
