@@ -8,6 +8,13 @@
 <html xmlns:spry="http://ns.adobe.com/spry">
 <head>
 
+<?php
+ 
+header('Access-Control-Allow-Origin: https://notify-api.line.me/api/notify');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
+ 
+?>
 
 <jsp:include page="/pages/basicPage.jsp"></jsp:include>
 <script src="<c:url value='/js/pages/feature/line.js'/>"></script>
@@ -32,7 +39,7 @@
 		<div class="col-md-10">
 			<!-- 主內容 -->
 			<h3>
-				測試LINE訊息
+				測試LINE訊息 11:14
 			</h3>
 			
 			<br/>

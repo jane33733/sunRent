@@ -6,23 +6,20 @@ var $dynamicTableBlock;
 var $dynamicTableSpace;
 var projectName = "janePractice/";
 var lineToken = "Bearer eOKIrVkJeqRsaAWKSXvWwSbrfGb0a4qhCtfcxYspkFt";
-
+var url = "https://notify-api.line.me/api/notify";
 
 function sendLine(){
 	$("#outcome").hide();
 	
-	var productQueryVO = {
-			message: "房客 OOO 該繳房租5423元(基本5000+電費423)"
+	var message = {
+			message: "測試"
 	    };
+	var mainUrl = $("#mainUrl").val();
 	
 	jQuery.ajax({
-		beforeSend: function(request) {
-		    request.setRequestHeader("Authorization", lineToken);
-		},
-	    url: "https://notify-api.line.me/api/notify",
+		url: mainUrl + "line/sendAnnouncement.do",
 	    dataType: "json",
-	    data: JSON.stringify(productQueryVO),
-	    type: "POST",
+	    type: "GET",
 	    contentType: 'application/json; charset=utf-8',
 	    success: function(resultData){
 	    	sendSuccess(resultData);
