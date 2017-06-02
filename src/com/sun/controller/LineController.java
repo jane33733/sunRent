@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sun.batch.LineTrigger;
 import com.sun.service.LineService;
 
 
@@ -22,8 +23,7 @@ public class LineController  {
 
     /** The Constant LOGGER. */
     private static final Logger LOGGER = LoggerFactory.getLogger(LineController.class);
-
-    /** The product service. */
+    
     @Autowired
     private LineService lineService;
     
@@ -45,12 +45,19 @@ public class LineController  {
     @ResponseBody
     @RequestMapping(value = "sendAnnouncement", method = RequestMethod.GET)
     public boolean sendAnnouncement() throws Exception {
-        LOGGER.info("[sendAnnouncement]------ Start ");
+        LOGGER.info("[sendAnnouncement]------ Start 14:34 ");
         
-        boolean result = lineService.sendAnnouncement("測試訊息");
+//        boolean result = lineService.sendAnnouncement("測試訊息");
+//        MainSchedule ms = new MainSchedule();
         
-        return result;
+        
+        boolean result = LineTrigger.changeTime("0/30 * * * * ?");
+        
+//        boolean result = ms.SpringDynamicCronTask();
+        
+        return true;
     }
+    
     
 
 }

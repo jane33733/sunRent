@@ -56,5 +56,11 @@ public class LineServiceImpl implements LineService{
 		
 		return result;
 	}
+
+	@Override
+	public String getBatTime(String messageType) {
+		// TODO Auto-generated method stub
+		return "0/30 * * * * ?";
+	}
 	
 }
