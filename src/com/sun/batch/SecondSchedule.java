@@ -23,27 +23,8 @@ public class SecondSchedule implements SchedulingConfigurer {
     private static final Logger LOGGER = LoggerFactory.getLogger(SecondSchedule.class);
     
     
-    private static String cron;
+    private static String cron = "0/5 * * * * ?";
 	
-	public SecondSchedule() {
-		cron = "0/5 * * * * ?";
-		
-		// 开启新线程模拟外部更改了任务执行周期
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Thread.sleep(15 * 1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				cron = "0/10 * * * * ?";
-				System.err.println("[第二個]: " + cron);
-			}
-		}).start();
-	}
-
 	@Override
 	public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
 		taskRegistrar.addTriggerTask(new Runnable() {
@@ -64,7 +45,7 @@ public class SecondSchedule implements SchedulingConfigurer {
 	}
 	
 	public static boolean changeTime(String changeTime) {
-		LineTrigger.changeTime(changeTime);
+		cron = changeTime;
 		LOGGER.info("change time... " + changeTime);
 		
 		return true;

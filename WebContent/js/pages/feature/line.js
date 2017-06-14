@@ -12,12 +12,13 @@ function sendLine(){
 	$("#outcome").hide();
 	
 	var message = {
-			message: "測試"
+			lineTime : $("#lineTime").val()
 	    };
 	var mainUrl = $("#mainUrl").val();
 	
 	jQuery.ajax({
 		url: mainUrl + "line/sendAnnouncement.do",
+	    data: "lineTime=" + encodeURI( $("#lineTime").val() ),
 	    dataType: "json",
 	    type: "GET",
 	    contentType: 'application/json; charset=utf-8',

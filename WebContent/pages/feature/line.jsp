@@ -19,7 +19,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
 <jsp:include page="/pages/basicPage.jsp"></jsp:include>
 <script src="<c:url value='/js/pages/feature/line.js'/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>mail practice</title>
+<title>Line practice</title>
 </head>
 
 
@@ -39,8 +39,13 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
 		<div class="col-md-10">
 			<!-- 主內容 -->
 			<h3>
-				測試LINE訊息 11:14
+				測試LINE訊息 11:14  0/30 * * * * ?
 			</h3>
+			
+			<br/>
+			
+			<!-- placeholder="發送訊息的時間" -->
+			<input type="text" id="lineTime" name="lineTime" class="form-control" value="0/15 * * * * ?">
 			
 			<br/>
 			

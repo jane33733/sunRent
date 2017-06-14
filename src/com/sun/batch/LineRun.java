@@ -23,7 +23,7 @@ public class LineRun implements Runnable {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //		lineService.sendAnnouncement("現在時間 " + sdf.format(new Date()));
 //		LOGGER.info("這裡是run dynamicCronTask is running...");
-		LOGGER.info("111現在時間 " + sdf.format(new Date()));
+		LOGGER.info("[第一個]現在時間 " + sdf.format(new Date()));
 
 	}
 
