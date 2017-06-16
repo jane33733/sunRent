@@ -1,5 +1,5 @@
 package com.sun.entity;
-// Generated 2017/6/15  10:38:54 by Hibernate Tools 4.3.1.Final
+// Generated 2017/6/16 02:32:43 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -19,23 +19,22 @@ public class SunBatch implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6250605561419744155L;
-	
+	private static final long serialVersionUID = 3269748263700202154L;
 	private String id;
-	private String description;
 	private String cronStr;
 	private Date runTime;
 	private Date updateTime;
+	private String updateUser;
 
 	public SunBatch() {
 	}
 
-	public SunBatch(String id, String description, String cronStr, Date runTime, Date updateTime) {
+	public SunBatch(String id, String cronStr, Date runTime, Date updateTime, String updateUser) {
 		this.id = id;
-		this.description = description;
 		this.cronStr = cronStr;
 		this.runTime = runTime;
 		this.updateTime = updateTime;
+		this.updateUser = updateUser;
 	}
 
 	@Id
@@ -49,15 +48,6 @@ public class SunBatch implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "description", nullable = false, length = 50)
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	@Column(name = "cron_str", nullable = false, length = 50)
 	public String getCronStr() {
 		return this.cronStr;
@@ -67,8 +57,8 @@ public class SunBatch implements java.io.Serializable {
 		this.cronStr = cronStr;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "run_time", nullable = false, length = 19)
+	@Temporal(TemporalType.TIME)
+	@Column(name = "run_time", nullable = false, length = 8)
 	public Date getRunTime() {
 		return this.runTime;
 	}
@@ -85,6 +75,15 @@ public class SunBatch implements java.io.Serializable {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	@Column(name = "update_user", nullable = false, length = 50)
+	public String getUpdateUser() {
+		return this.updateUser;
+	}
+
+	public void setUpdateUser(String updateUser) {
+		this.updateUser = updateUser;
 	}
 
 }

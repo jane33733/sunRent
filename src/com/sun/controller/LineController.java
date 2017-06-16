@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.batch.LineTrigger;
-import com.batch.SecondSchedule;
+import com.batch.EmailBatch;
+import com.batch.LineBatch;
 import com.sun.service.LineService;
 
 
@@ -31,20 +31,6 @@ public class LineController  {
     @Autowired
     private LineService lineService;
     
-    /**
-     * Search.
-     *
-     * @param statisticsRptQueryVO the statistics rpt query VO
-     * @return the exe result VO
-     * @throws Exception the exception
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "getByPrice", method = RequestMethod.POST)
-//    public List<Product> getByPrice(@RequestBody ProductQueryVO queryVO) throws Exception {
-//        LOGGER.debug("[getByPrice]------ Start "+queryVO.getPriceBottom());
-//        System.out.println("[getByPrice]------ Start "+queryVO.getPriceBottom());
-//        return productService.searchByCondition(queryVO);
-//    }
     
     @ResponseBody
     @RequestMapping(value = "sendAnnouncement", method = RequestMethod.GET)
@@ -57,8 +43,8 @@ public class LineController  {
 //        MainSchedule ms = new MainSchedule();
         
         
-        boolean result = LineTrigger.changeTime(lineTime);
-        SecondSchedule.changeTime("0/10 * * * * ?");
+        boolean result = LineBatch.changeTime(lineTime);
+        EmailBatch.changeTime("0/10 * * * * ?");
         LOGGER.info("[sendAnnouncement]------ final result: {} ", result);
 //        boolean result = ms.SpringDynamicCronTask();
         

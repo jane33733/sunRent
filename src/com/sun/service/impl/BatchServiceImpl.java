@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sun.common.vo.BatchType;
 import com.sun.dao.BatchDao;
 import com.sun.entity.SunBatch;
 import com.sun.service.BatchService;
@@ -19,11 +20,15 @@ public class BatchServiceImpl implements BatchService {
     private BatchDao batchDao = new BatchDao();
     
 	@Override
-	public List<SunBatch> initialTime() throws Exception {
+	public List<SunBatch> initialTime(BatchType batchType) throws Exception {
 		LOGGER.info("[BatchService]");
 		List<SunBatch> resultList = new ArrayList<>();
 //		BatchDao batchDao = new BatchDao();
-		resultList = batchDao.queryById(null);
+		if (batchType == null) {
+			resultList = batchDao.queryById(null);
+		} else {
+			resultList = batchDao.queryById(batchType.getValue());
+		}
 		return resultList;
 	}
 

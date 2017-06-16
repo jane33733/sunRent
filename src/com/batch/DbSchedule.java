@@ -1,4 +1,4 @@
-package com.sun.batch;
+package com.batch;
 
 import java.util.List;
 
@@ -22,12 +22,8 @@ public class DbSchedule {
 	/** The Constant LOGGER. */
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(DbSchedule.class);
     
-//	@Autowired
-//    private BatchService batchService;
-	
-	
 	@PostConstruct
-	@Scheduled(cron = "0 40 11 * * *")
+	@Scheduled(cron = "0 0 0 24 12 ?")
     public void work() {
 		LOGGER.info("[資料庫設定時間] had initial time ");
 		
