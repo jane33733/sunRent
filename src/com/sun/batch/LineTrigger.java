@@ -15,7 +15,6 @@ public class LineTrigger implements Trigger {
 	@Autowired
     private LineService lineService;
 	
-//	private static CronTriggerFactoryBean trigger = new CronTriggerFactoryBean();
 	private static CronTrigger trigger = new CronTrigger("0/10 * * * * ?");
 	
 	
@@ -28,12 +27,11 @@ public class LineTrigger implements Trigger {
 	}
 	
 	public static boolean changeTime(String cron) {
-//		CronTriggerFactoryBean.setCronExpression(cron);
-		
-//		trigger.setCronExpression(cron);
 		trigger = null;
 		trigger = new CronTrigger(cron);
         return true;
 	}
+	
+	
 
 }

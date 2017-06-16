@@ -1,5 +1,5 @@
 ﻿
---產品
+-- 產品
 DROP TABLE IF EXISTS `sun_product`;
 CREATE TABLE `sun_product` (
 	`id` VARCHAR(100) NOT NULL COMMENT '流水編號',
@@ -12,7 +12,7 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
---帳號
+-- 帳號
 DROP TABLE IF EXISTS `sun_account`;
 CREATE TABLE `sun_account` (
 	`id` VARCHAR(50) NOT NULL COMMENT '帳號id',
@@ -27,7 +27,7 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
---使用者
+-- 使用者
 DROP TABLE IF EXISTS `sun_user`;
 CREATE TABLE `sun_user` (
 	`id` VARCHAR(50) NOT NULL COMMENT '使用者id',
@@ -40,3 +40,22 @@ CREATE TABLE `sun_user` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
+
+
+
+-- 批次設定表
+DROP TABLE IF EXISTS `sun_batch`;
+CREATE TABLE `sun_batch` (
+	`id` VARCHAR(50) NOT NULL COMMENT '批次id',
+	`description` VARCHAR(50) NOT NULL COMMENT '批次用途描述',
+	`cron_str` VARCHAR(50) NOT NULL COMMENT '週期代碼',
+	`run_time` DATETIME NOT NULL COMMENT '執行時間',
+	`update_time` DATETIME NOT NULL COMMENT '建立時間',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+
