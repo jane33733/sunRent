@@ -16,8 +16,6 @@
 
 <body>
 
-<input type="hidden" id="postUrl" value="<c:url value='/mail/sendEmail.do'/>"/>
-
 <br>
 index try to Login 15:19
 <br>

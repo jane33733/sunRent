@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.batch.LineTrigger;
+import com.batch.SecondSchedule;
 import com.sun.common.vo.BatchType;
 import com.sun.entity.SunBatch;
 import com.sun.service.BatchService;
@@ -25,7 +27,7 @@ public class DbSchedule {
 	
 	
 	@PostConstruct
-	@Scheduled(cron = "0 48 9 * * *")
+	@Scheduled(cron = "0 40 11 * * *")
     public void work() {
 		LOGGER.info("[資料庫設定時間] had initial time ");
 		

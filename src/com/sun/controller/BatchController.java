@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sun.batch.LineTrigger;
-import com.sun.batch.SecondSchedule;
+import com.batch.LineTrigger;
+import com.batch.SecondSchedule;
 import com.sun.service.BatchService;
 
 

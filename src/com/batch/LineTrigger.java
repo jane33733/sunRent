@@ -1,4 +1,4 @@
-package com.sun.batch;
+package com.batch;
 
 import java.util.Date;
 

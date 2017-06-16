@@ -33,13 +33,10 @@
 		</property>
 	</bean>
 
-
-	<!-- 批次 -->
-	<bean id="BatchService" class="com.sun.service.impl.BatchServiceImpl"></bean>
 	
 	
 	<!-- 批次排程 -->
-	<context:component-scan base-package="com.sun.batch" />
+	<context:component-scan base-package="com.batch" />
 	<task:executor id="executorLine" pool-size="3"/>
 	<task:scheduler id="schedulerLine" />
 	<task:annotation-driven executor="executorLine" scheduler="schedulerLine"/>
